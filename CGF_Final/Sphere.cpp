@@ -1,7 +1,8 @@
 #include "Sphere.h"
-#include "Utils.h"
 
 #include <vector>
+
+Sphere::Sphere() {}
 
 Sphere::Sphere(float radius, int sectorCount, int stackCount) {
 	this->radius = radius;		

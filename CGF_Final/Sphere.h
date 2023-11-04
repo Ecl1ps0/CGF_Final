@@ -16,9 +16,9 @@ private:
 	int stackCount = 100;
 
 public: 
+	Sphere();
 	Sphere(float radius, int sectorCount, int stackCount);
 
 	void createSphere(std::vector<glm::vec3>& vertices, std::vector<glm::vec3>& normals, std::vector<glm::vec2>& texCoords);
-	void applyShadersToSphere();
 };
 
