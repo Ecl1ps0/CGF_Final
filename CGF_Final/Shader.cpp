@@ -1,6 +1,9 @@
 #include "Shader.h"
 
-Shader::Shader(const std::string& vsh, const std::string& fsh): vsh(vsh), fsh(fsh) {}
+Shader::Shader(std::string vsh, const std::string fsh) {
+	this->vsh = vsh;
+	this->fsh = fsh;
+}
 
 unsigned int Shader::compileShader(const std::string& source, unsigned int type) {
 	unsigned int id = glCreateShader(type);
@@ -13,10 +16,10 @@ unsigned int Shader::compileShader(const std::string& source, unsigned int type)
 	if (result == GL_FALSE) {
 		int lenght;
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &lenght);
-		char* message = (char*)malloc(lenght * sizeof(char));
-		glGetShaderInfoLog(id, lenght, &lenght, message);
+		std::vector<char> message(lenght);
+		glGetShaderInfoLog(id, lenght, &lenght, &message[0]);
 		std::cout << "Fail to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << std::endl;
-		std::cout << message << std::endl;
+		std::cout << &message[0] << std::endl;
 		glDeleteShader(id);
 		return 0;
 	}
