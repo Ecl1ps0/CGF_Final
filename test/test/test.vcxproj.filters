@@ -21,20 +21,17 @@
     <ClCompile Include="Source.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Another.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="Smoke.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="MoreOne.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="AnotherOne.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Smoke.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="FastNoise.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
