@@ -1,34 +1,34 @@
-#include "Smoke.h"
+#include "Fire.h"
 
-Smoke::Smoke(int width, int height, int depth) {
-    this->width = width;
-    this->height = height;
-    this->depth = depth;
+Fire::Fire(int width, int height, int depth) {
+	this->width = width;
+	this->height = height;
+	this->depth = depth;
 
-    this->noiseData = std::vector<float>(width * height * depth);
+	this->noiseData = std::vector<float>(width * height * depth);
 }
 
-void Smoke::generateNoise(unsigned int seed) {
+void Fire::generateNoise() {
     FastNoiseLite noise;
-    noise.SetNoiseType(FastNoiseLite::NoiseType::NoiseType_Perlin);
-    noise.SetSeed(seed);
+    noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
 
     for (int z = 0; z < this->depth; z++) {
         for (int y = 0; y < this->height; y++) {
             for (int x = 0; x < this->width; x++) {
                 float value = noise.GetNoise(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z));
-                value = (value + 1.5f) * 0.5f;
-                value = pow(value, 1.5f);  
+                value = (value + 1.0f) * 0.5f;
+                value = pow(value, 0.5f);
+                value *= 2.0f;
 
-                this->noiseData[x + y * this->width + z * this->width * this->height] = value;
+                noiseData[rand() % this->width + y * this->width + z * this->width * this->height] = value;
             }
         }
     }
 }
 
-void Smoke::createQuad(unsigned int& vao, unsigned int& vbo) {
+void Fire::createQuad(GLuint& vao, GLuint& vbo) {
     float vertices[] = {
-        -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+        -1.0f, -1.0f, 1.0f, 0.0f, 0.0f,
          1.0f, -1.0f, 0.0f, 1.0f, 0.0f,
          1.0f,  1.0f, 0.0f, 1.0f, 1.0f,
         -1.0f,  1.0f, 0.0f, 0.0f, 1.0f
