@@ -130,12 +130,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Smoke.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FastNoise.h" />
+    <ClInclude Include="Fire.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Smoke.h" />
   </ItemGroup>
